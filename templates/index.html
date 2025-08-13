@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AQI Prediction with PCA</title>
+    <title>Music Genre Prediction</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 <div class="container">
-    <h1>Air Quality Index Prediction</h1>
-    <form action="/predict" method="post">
-        <input type="number" step="0.1" name="pm25" placeholder="PM2.5" required>
-        <input type="number" step="0.1" name="pm10" placeholder="PM10" required>
-        <input type="number" step="0.1" name="no2" placeholder="NO2" required>
-        <input type="number" step="0.1" name="so2" placeholder="SO2" required>
-        <input type="number" step="0.1" name="co" placeholder="CO" required>
-        <input type="number" step="0.1" name="o3" placeholder="O3" required>
-        <button type="submit">Predict AQI Category</button>
+    <h1>🎵 Music Genre Classification</h1>
+    <form method="POST">
+        <input type="number" step="any" name="tempo" placeholder="Tempo" required>
+        <input type="number" step="any" name="loudness" placeholder="Loudness" required>
+        <input type="number" step="any" name="danceability" placeholder="Danceability" required>
+        <input type="number" step="any" name="energy" placeholder="Energy" required>
+        <input type="number" step="any" name="valence" placeholder="Valence" required>
+        <input type="number" step="any" name="acousticness" placeholder="Acousticness" required>
+        <input type="number" step="any" name="instrumentalness" placeholder="Instrumentalness" required>
+        <input type="number" step="any" name="speechiness" placeholder="Speechiness" required>
+        <input type="number" step="any" name="liveness" placeholder="Liveness" required>
+        <input type="number" step="any" name="duration_ms" placeholder="Duration (ms)" required>
+        <button type="submit">Predict Genre</button>
     </form>
-    {% if prediction_text %}
-        <h2>{{ prediction_text }}</h2>
+    {% if prediction %}
+        <h2>Predicted Genre: {{ prediction }}</h2>
     {% endif %}
 </div>
 </body>
